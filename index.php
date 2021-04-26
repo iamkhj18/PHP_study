@@ -7,19 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>WEB</h1>
+    <a href="index.html">Home</a>
+    <h1><a href="index.php">WEB</a></h1>
     <ol>
-        <li><a href="index.php?id=HTML">HTML</a></li>
-        <li><a href="index.php?id=CSS">CSS</a></li>
-        <li><a href="index.php?id=JavaScript">JavaScript</a></li>
+        <?php
+            $list = scandir('data');
+        ?>
     </ol>
     <h2>
         <?php
-            echo $_GET['id'];
+            if(isset($_GET['id'])){
+                echo $_GET['id'];
+            }else {
+                echo "Welcome";
+            }              
         ?>
     </h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error exercitationem alias voluptatibus, sit deserunt
-    accusamus, qui laboriosam praesentium expedita quas debitis amet, quae enim! Nemo voluptatem quidem consectetur
-    facilis excepturi!
+    <?php
+        if(isset($_GET['id'])){
+            echo file_get_contents("data/".$_GET['id']);
+        }else{
+            echo "Hello, PHP";
+        }
+    ?>
 </body>
 </html>
