@@ -18,5 +18,4 @@
         var_dump($char);
     ?>
 </body>
->>>>>>> ef8f80642e0fc09f227c21cd9cf3a2a530ba2634
 </html>
